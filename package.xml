@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>workspace</name>
+  <version>0.1.0</version>
+  <description>
+    <p>
+      Workspace at NTNU.
+    </p>
+  </description>
+  <author>D. Lofthus</author>
+  <maintainer email="daglof@stud.ntnu.no">NTNU</maintainer>
+  <license>DL</license>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <export>
+    <architecture_independent />
+  </export>
+</package>

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+  <xacro:include filename="$(find kuka_resources)/urdf/common_constants.xacro"/>
+  <xacro:include filename="$(find kuka_resources)/urdf/common_materials.xacro"/>
+
+  <xacro:macro name="workspace" params="prefix">
+    <link name="${prefix}table">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://workspace/meshes/visual/table.dae" />
+        </geometry>
+        <xacro:material_kuka_pedestal />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://workspace/meshes/collision/table.stl" />
+        </geometry>
+      </collision>
+    </link>
+    <link name="${prefix}pedestal">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://workspace/meshes/visual/pedestal.dae" />
+        </geometry>
+        <xacro:material_kuka_pedestal />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://workspace/meshes/collision/pedestal.stl" />
+        </geometry>
+      </collision>
+    </link>
+    
+
+    <joint name="${prefix}pedestal-table" type="fixed">
+      <parent link="${prefix}pedestal"/>
+      <child link="${prefix}table"/>
+      <origin xyz="0.675 0.200 0" rpy="0 0 ${DEG2RAD * 90}"/>
+    </joint>    
+  </xacro:macro>
+</robot>

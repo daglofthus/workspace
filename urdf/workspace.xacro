@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<robot name="workspace" xmlns:xacro="http://wiki.ros.org/xacro">
+  <xacro:include filename="$(find workspace)/urdf/workspace_macro.xacro" />
+  <xacro:workspace prefix=""/>
+</robot>
