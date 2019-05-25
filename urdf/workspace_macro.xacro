@@ -34,12 +34,26 @@
         </geometry>
       </collision>
     </link>
+    <link name="${prefix}zivid">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://workspace/meshes/visual/zivid.dae" />
+        </geometry>
+        <xacro:material_kuka_pedestal />
+      </visual>
+    </link>
     
 
     <joint name="${prefix}pedestal-table" type="fixed">
       <parent link="${prefix}pedestal"/>
       <child link="${prefix}table"/>
-      <origin xyz="0.675 0.200 0" rpy="0 0 ${DEG2RAD * 90}"/>
+      <origin xyz="0.675 -1.0 0" rpy="0 0 ${DEG2RAD * 90}"/>
     </joint>    
+    <joint name="${prefix}table-zivid" type="fixed">
+      <parent link="${prefix}table"/>
+      <child link="${prefix}zivid"/>
+      <origin xyz="0.4 0.675 1.95" rpy="${DEG2RAD * 180} 0 0"/>
+    </joint> 
   </xacro:macro>
 </robot>
